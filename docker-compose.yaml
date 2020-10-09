@@ -1,0 +1,26 @@
+version: '3.2'
+
+services:
+  puppetmaster:
+    image: puppet-enterprise:2019.0.2-7 
+    hostname: docpup.example.com
+    volumes:
+        - type: bind
+          source: ./puppetlabs-etc
+          target: /etc/puppetlabs
+    domainname: example.com
+    ports:
+        - 443
+        - 8140
+        - 8142
+        - 61613
+    networks:
+        frontend:
+           aliases: 
+             - docpup.public.example.com
+               
+networks:
+    frontend:
+      driver: bridge
+    backend:
+      internal: true 
