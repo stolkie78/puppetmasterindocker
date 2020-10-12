@@ -1,0 +1,30 @@
+---
+#
+# The default settings for all nodes
+#
+defaults:
+  domain_name:     example.com
+  cpucount:         4
+  ram:		          8192
+  needs_storage:    false
+  box:              generic/centos8 
+  dhcp_fix:         false
+  virtualboxorafix: true
+  custom_facts:
+    deployment_zone: vagrant
+
+#
+# The default settings for all ML nodes
+#
+ml-defaults:
+  type:             masterless
+
+#
+# All PE in docker is a masterless node (duh)
+#
+ml-docker:
+  public_ip:        '10.10.10.5'
+  #software_files:
+  #  - jdk-8u152-linux-x64.tar.gz
+  #  - fmw_12.2.1.2.0_wls.jar
+  #  - jce_policy-8.zip
